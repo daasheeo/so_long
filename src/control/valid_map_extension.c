@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   valid_map_extension.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 13:44:26 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/02/27 12:47:33 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/02/27 12:47:48 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
-#include <test_so_long.h>
+# include <so_long.h>
 
-int	main(int argc, char **argv)
+int	is_valid_map_extension(char *map_name)
 {
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
-	if (argc != 2)
-	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
+	int	len;
+
+	len = ft_strlen(map_name);
+	if (len < 4)
+		return (0);
+	if (ft_strncmp(map_name + len - 4, ".ber", 4) == 0)
 		return (1);
-	}
-	parse_map(argv[1]);
 	return (0);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   core_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 13:44:26 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/02/27 12:44:28 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/02/27 12:45:20 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
-#include <test_so_long.h>
+# include <so_long.h>
 
-int	main(int argc, char **argv)
+void	parse_map(char *map_name)
 {
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
-	if (argc != 2)
+	if (!is_valid_map_extension(map_name))
 	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-		return (1);
+		ft_putstr_fd("Error\nInvalid map extension\n", 2);
+		exit(1);
 	}
-	parse_map(argv[1]);
-	return (0);
+	// parse_map(map_name);
 }

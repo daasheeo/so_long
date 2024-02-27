@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 11:45:15 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:46:05 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ typedef struct s_map
 	int					collectibles_collected;
 	int					exits;
 }						t_map;
+
+// Core functions
+
+void					parse_map(char *map_name);
+int						is_valid_map_extension(char *map_name);
 
 // Rand function for random number generation
 typedef struct s_rand
