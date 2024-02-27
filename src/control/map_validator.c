@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:23:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 17:26:16 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:06:27 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,25 @@ int	is_valid_map_extension(char *map_name)
 
 int is_map_rectangular(char *map_file)
 {
-	(void)map_file;
+	int fd;
+	int row_len;
+	int next_row_len;
+	char *line;
+	int i;
+	
+	fd = open(map_file, O_RDONLY);
+	row_len = 0;
+	next_row_len = 0;
+	i = 0;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		row_len = ft_strlen(line);
+		
+		
+	}
+	close(fd);
 	return (1);
 }

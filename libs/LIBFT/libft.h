@@ -6,17 +6,17 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 19:20:21 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/19 13:28:02 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:46:09 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <ft_printf.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <ft_printf.h>
 
 typedef struct s_list
 {
@@ -136,41 +136,41 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 
 /**
- * @param dst This is pointer to the destination array where the 
+ * @param dst This is pointer to the destination array where the
  * content is to be copied, type-casted to a pointer of type void*.
- * @param src This is pointer to the source of data to be copied, 
+ * @param src This is pointer to the source of data to be copied,
  * type-casted to a pointer of type void*.
  * @param n This is the number of bytes to be copied.
  * @note This function copies n characters from src to dst and returns dst.
-*/
+ */
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 
 /**
  * @param dst Is the null-terminated string to be modified or appended.
  * @param src Is the string to be appended.
  * @param dstsize Is the size of the destination buffer.
- * @note This function appends the NUL-terminated string src to the end of dst 
+ * @note This function appends the NUL-terminated string src to the end of dst
  * and returns the total length of the string they tried to create.
  *
-*/
+ */
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /**
- * @param dst Is the null-terminated string to be modified 
+ * @param dst Is the null-terminated string to be modified
  * @param src Is the null-terminated string to be copied.
  * @param dstsize Nothing will be written beyond dst+size-1.
- * @note This function function copies up to size - 1 characters from 
+ * @note This function function copies up to size - 1 characters from
  * the NUL-terminated string src to dst, NUL-terminating the result.
  *
-*/
+ */
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 /**
  * @param str Is the string to be converted.
  * @note This function converts the initial
- * portion of the string pointed to by str to 
+ * portion of the string pointed to by str to
  * int representation.
-*/
+ */
 int					ft_atoi(const char *str);
 
 /**
@@ -178,23 +178,23 @@ int					ft_atoi(const char *str);
  *  where the search is performed.
  * @param c This is the character to be found.
  * @param n This is the number of bytes to be analyzed.
- * @note This function locates the first occurrence of c 
+ * @note This function locates the first occurrence of c
  * (converted to an unsigned char) in string s.
-*/
+ */
 void				*ft_memchr(const void *s, int c, size_t n);
 
 /**
  * @param s1 This is the string to duplicate.
- * @note This function is used to duplicate a string. 
+ * @note This function is used to duplicate a string.
  * It returns a pointer to null-terminated byte string
-*/
+ */
 char				*ft_strdup(const char *s1);
 
 /**
  * @param count This is the number of elements to be allocated.
  * @param size This is the size of elements.
  * @note This function allocates memory for an array of count elements
-*/
+ */
 void				*ft_calloc(size_t count, size_t size);
 
 /**
@@ -202,32 +202,32 @@ void				*ft_calloc(size_t count, size_t size);
  * @param s2 This is the string to be compared.
  * @param n This is the maximum number of characters to be compared.
  * @note This function compares string1 and string2 to the maximum of count.
-*/
+ */
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
- * @param s The field, expression, or literal value to extract 
+ * @param s The field, expression, or literal value to extract
  * the substring from.
  * @param start The starting character position of the substring.
  * @param len The number of characters in the substring.
  * @note Returns a specified substring from a string.
-*/
+ */
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
  * @param s1 This is the first string to be joined.
  * @param s2 This is the string to be joined with s1.
- * @note Returns the new string that is result of joining 
+ * @note Returns the new string that is result of joining
  * s1 and s2, if fails returns NULL.
-*/
+ */
 char				*ft_strjoin(char const *s1, char const *s2);
 
 /**
- * @param str This is the string to be searched 
+ * @param str This is the string to be searched
  * @param to_find This is the string to be searched.
- * @param len This is the maximum number of bytes to be searched. 
- * @note 
-*/
+ * @param len This is the maximum number of bytes to be searched.
+ * @note
+ */
 char				*ft_strnstr(const char *str, const char *to_find,
 						size_t len);
 
@@ -235,21 +235,21 @@ char				*ft_strnstr(const char *str, const char *to_find,
  * @param s1 This is the string to be trimmed.
  * @param set This is the reference set of characters to trim.
  * @note Returns the new string that is result of trimming.
-*/						
+ */
 char				*ft_strtrim(char const *s1, char const *set);
 
 /**
  * @param c This is the character to be printed.
  * @param fd This is the file descriptor on which to write.
  * @note This function outputs the character c to the given file descriptor.
-*/
+ */
 void				ft_putchar_fd(char c, int fd);
 
 /**
  * @param s This is the string to be printed.
  * @param fd This is the file descriptor on which to write.
  * @note This function outputs the string s to the given file descriptor.
-*/
+ */
 void				ft_putstr_fd(char *s, int fd);
 
 /**
@@ -257,29 +257,30 @@ void				ft_putstr_fd(char *s, int fd);
  * @param fd This is the file descriptor on which to write.
  * @note This function outputs the string s to the given file descriptor,
  * followed by a newline.
-*/
+ */
 void				ft_putendl_fd(char *s, int fd);
 
 /**
  * @param n This is the integer to be printed.
  * @param fd This is the file descriptor on which to write.
  * @note This function outputs the integer n to the given file descriptor.
-*/
+ */
 void				ft_putnbr_fd(int n, int fd);
 
 /**
  * @param n This is the integer to be printed.
  * @note This function outputs the integer n converted to a string,
-*/
+ */
 char				*ft_itoa(int n);
 
 /**
  * @param s This is the string to be iterated.
  * @param f This is the function to be applied to each character.
  * @note This function applies the function f to each character of the string s
- * to create a new string (with malloc(3)) resulting from successive applications
+
+	* to create a new string (with malloc(3)) resulting from successive applications
  * of f.
-*/
+ */
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
@@ -288,7 +289,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @note Applies the function f to each character of the string passed
  * as argument, and passing its index as first argument. Each character
  * is passed by address to f to be modified if necessary.
-*/
+ */
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 /**
@@ -297,7 +298,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
  * @note Allocates (with malloc(3)) and returns an array of strings obtained
  * by splitting ’s’ using the character ’c’ as a delimiter. The array must be
  * ended by a NULL pointer.
-*/
+ */
 char				**ft_split(char const *s, char c);
 
 /**
@@ -305,53 +306,55 @@ char				**ft_split(char const *s, char c);
  * @note Allocates (with malloc(3)) and returns a new element. The variable
  * ’content’ is initialized with the value of the parameter ’content’. The
  * variable ’next’ is initialized to NULL.
-*/
+ */
 t_list				*ft_lstnew(void *content);
 
 /**
  * @param lst The address of a pointer to an element.
  * @param new The address of a pointer to the element to be added to the list.
  * @note Adds the element ’new’ at the beginning of the list.
-*/
+ */
 void				ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
  * @param lst The beginning of the list.
  * @note Counts the number of elements in a list.
-*/
+ */
 int					ft_lstsize(t_list *lst);
 
 /**
  * @param lst The beginning of the list.
  * @note Returns the last element of the list.
-*/
+ */
 t_list				*ft_lstlast(t_list *lst);
 
 /**
  * @param lst The beginning of the list.
  * @param new The address of a pointer to the element to be added to the list.
  * @note Adds the element ’new’ at the end of the list.
-*/
+ */
 void				ft_lstadd_back(t_list **lst, t_list *new);
 
 /**
  * @param lst The beginning of the list.
  * @param del The address of the function used to delete the content of the
  * element.
- * @note Deletes and frees the given element and every successor of that element,
+
+	* @note Deletes and frees the given element and every successor of that element,
  * using the function ’del’ and free(3). Finally, the pointer to the list must
  * be set to NULL.
-*/
+ */
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
  * @param lst The beginning of the list.
  * @param del The address of the function used to delete the content of the
  * element.
- * @note Deletes and frees the given element and every successor of that element,
+
+	* @note Deletes and frees the given element and every successor of that element,
  * using the function ’del’ and free(3). Finally, the pointer to the list must
  * be set to NULL.
-*/
+ */
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
@@ -359,7 +362,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
  * @param f The address of the function used to iterate on the list.
  * @note Iterates the list ’lst’ and applies the function ’f’ to the content of
  * each element.
-*/
+ */
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
@@ -371,7 +374,9 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
  * each element. Creates a new list resulting of the successive applications of
  * the function ’f’. The ’del’ function is used to delete the content of an
  * element if needed.
-*/
+ */
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+char				*get_next_line(int fd);
 #endif
