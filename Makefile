@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/02/27 12:49:45 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/02/27 17:24:18 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ INCLUDE 			=   ./include/
 #-----------------------------------FILES--------------------------------------#
 #------------------------------------------------------------------------------#
 
-SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/test_parse_map.c
+SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
 
 SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_DIR}/control/core_checker.c \
-				${SRC_DIR}/control/valid_map_extension.c \
+				${SRC_DIR}/control/map_validator.c \
 				${SRC_TEST_FILES}
 
 OBJ			=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))

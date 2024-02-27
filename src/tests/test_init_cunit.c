@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 13:30:39 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:50:57 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	parser_suite(void)
 	// Set up suites and tests
 	test_parser_suite = CU_add_suite("Parser Tests", NULL, NULL);
 	
-	CU_add_test(test_parser_suite, "test_parse_valid_extension_map",
-		test_parse_valid_extension_map);
-	CU_add_test(test_parser_suite, "test_parse_invalid_extension_map",
-		test_parse_invalid_extension_map);
-	CU_add_test(test_parser_suite, "test_parse_open_valid_map",
-		test_parse_open_valid_map);
+	CU_add_test(test_parser_suite, "test_extension_map_should_be_true",
+		test_extension_map_should_be_true);
+	CU_add_test(test_parser_suite, "test_extension_map_should_be_false",
+		test_extension_map_should_be_false);
+	CU_add_test(test_parser_suite, "test_open_map_should_return_valid_fd",
+		test_open_map_should_return_valid_fd);
+	CU_add_test(test_parser_suite, "test_open_map_should_return_invalid_fd",
+		test_open_map_should_return_invalid_fd);
 }
 
 int	run_testing(void)

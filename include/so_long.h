@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 12:46:05 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:26:29 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <MLX42/MLX42.h>
 # include <libft.h>
 # include <stdio.h>
+# include <fcntl.h>
 
 // Structure for the game
 
@@ -47,6 +48,8 @@ typedef struct s_map
 
 void					parse_map(char *map_name);
 int						is_valid_map_extension(char *map_name);
+int						open_map(char *map_file);
+int						is_map_rectangular(char *map_file);
 
 // Rand function for random number generation
 typedef struct s_rand

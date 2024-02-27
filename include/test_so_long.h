@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:02 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 13:30:51 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:50:16 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int	run_testing(void);
 
 
 /**TESTS**/
-void	test_parse_valid_extension_map(void);
-void 	test_parse_invalid_extension_map(void);
-void	test_parse_open_valid_map(void);
+void	test_extension_map_should_be_true(void);
+void 	test_extension_map_should_be_false(void);
+void	test_open_map_should_return_valid_fd(void);
+void	test_open_map_should_return_invalid_fd(void);
 
 #endif
