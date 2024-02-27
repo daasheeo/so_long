@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_so_long.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 11:48:35 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/02/27 11:45:02 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/02/27 11:59:52 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
-#include <test_so_long.h>
+#ifndef TEST_SO_LONG_H
+# define TEST_SO_LONG_H
 
-int	main(int argc, char **argv)
-{
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
-	if (argc != 2)
-	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-		return (1);
-	}
-	ft_printf("Map: %s\n", argv[1]);
-	return (0);
-}
+# include "/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/include/CUnit/Basic.h"
+# include "/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/include/CUnit/CUnit.h"
+
+/**
+ * @brief Run the tests
+ *
+ * @return int
+ */
+int	run_testing(void);
+
+
+/**TESTS**/
+void	test_parse_valid_map(void);
+void	test_parse_invalid_map(void);
+
+#endif

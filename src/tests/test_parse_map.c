@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_parse_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 11:48:35 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/02/27 11:47:27 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
 #include <test_so_long.h>
 
-int	main(int argc, char **argv)
+void	test_parse_valid_map(void)
 {
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
-	if (argc != 2)
-	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-		return (1);
-	}
-	ft_printf("Map: %s\n", argv[1]);
-	return (0);
+	CU_ASSERT_EQUAL(1, 1);
+}
+
+void	test_parse_invalid_map(void)
+{
+	CU_ASSERT_EQUAL(0, 0);
 }

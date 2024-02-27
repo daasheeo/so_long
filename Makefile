@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/02/19 16:35:10 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/02/27 11:50:05 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,9 @@ INCLUDE 			=   ./include/
 #-----------------------------------FILES--------------------------------------#
 #------------------------------------------------------------------------------#
 
-SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c
+SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/test_parse_map.c
+
+SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_TEST_FILES}
 
 OBJ			=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 DEP			= 	$(addsuffix .d, $(basename $(SRC_FILES)))
@@ -57,7 +59,7 @@ DEP			= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 #---------------------------------DEPENDENCIES---------------------------------#
 #------------------------------------------------------------------------------#
 # CUnit library for testing
-# CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
+CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
 # CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
