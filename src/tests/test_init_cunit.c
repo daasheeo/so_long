@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 17:48:46 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:04:56 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	parser_suite(void)
 		test_open_map_should_return_valid_fd);
 	CU_add_test(test_parser_suite, "test_open_map_should_return_invalid_fd",
 		test_open_map_should_return_invalid_fd);
+	CU_add_test(test_parser_suite, "test_get_map",
+		test_get_map);
 	CU_add_test(test_parser_suite, "test_map_should_be_rectangular",
 		test_map_should_be_rectangular);
 	CU_add_test(test_parser_suite, "test_map_should_not_be_rectangular",

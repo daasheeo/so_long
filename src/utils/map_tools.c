@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   map_tools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 11:41:31 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 08:27:50 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/02/28 11:55:44 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/02/28 12:19:34 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <so_long.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+int	get_array_map_size(int fd)
 {
-	unsigned char	*dest;
+	char *line;
+	int i;
 
-	dest = b;
-	while (len)
+	i = 0;
+	while (1)
 	{
-		*dest = c;
-		dest++;
-		len--;
+		line = ft_strtrim(get_next_line(fd), "\n");
+		if (!line)
+			break ;
+		free(line);
+		i++;
 	}
-	return (b);
+	close(fd);
+	return (i);
 }

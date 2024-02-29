@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 18:25:29 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/02/19 16:16:19 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/02/28 08:30:42 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ NAME 		= libft.a
 OBJ_DIR		= obj
 INCLUDE 	= ./
 CC 			= gcc -I ${INCLUDE}
-CFLAGS 		= -Wall -Wextra -Werror -g -MMD
+CFLAGS 		= -Wall -Wextra -g -MMD
 RM			= 	rm -rf
 
 SRC_FILES   =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \

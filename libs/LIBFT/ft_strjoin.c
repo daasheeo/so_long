@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:34:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2023/09/18 09:54:47 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/28 10:15:39 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s2_len;
 	char	*str;
 
+	if (!s1)
+	{
+		s1 = ft_calloc(1, 1);
+		if (!s1)
+			return (0);
+	}
 	if (!s1 || !s2)
 		return (0);
 	s1_len = ft_strlen(s1);

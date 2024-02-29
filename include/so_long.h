@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 17:26:29 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:21:26 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ typedef struct s_map
 void					parse_map(char *map_name);
 int						is_valid_map_extension(char *map_name);
 int						open_map(char *map_file);
-int						is_map_rectangular(char *map_file);
+int						is_map_rectangular(char **map);
+int						is_map_closed(char **map);
+int						get_array_map_size(int fd);
+char					**get_map(char *map_file);
 
 // Rand function for random number generation
 typedef struct s_rand

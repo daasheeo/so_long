@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:23:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 18:06:27 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:42:09 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 int	open_map(char *map_file)
 {
 	int	fd;
-	int	temp;
 
 	fd = open(map_file, O_RDONLY);
-	temp = fd;
-	close(fd);
-	return (temp);
+	return (fd);
 }
 
 int	is_valid_map_extension(char *map_name)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(map_name);
 	if (len < 4)
@@ -35,27 +32,59 @@ int	is_valid_map_extension(char *map_name)
 	return (0);
 }
 
-int is_map_rectangular(char *map_file)
+static int	check_map(char *line, int i)
 {
-	int fd;
-	int row_len;
-	int next_row_len;
-	char *line;
-	int i;
-	
-	fd = open(map_file, O_RDONLY);
-	row_len = 0;
+	int	prev_row_len;
+	int	next_row_len;
+
+	prev_row_len = 0;
 	next_row_len = 0;
+	if (i == 0)
+		prev_row_len = ft_strlen(line);
+	else
+	{
+		next_row_len = ft_strlen(line);
+		if (next_row_len != prev_row_len)
+			return (0);
+		prev_row_len = next_row_len;
+	}
+	return (1);
+}
+
+int	is_map_rectangular(char **map)
+{
+	int	i;
+
 	i = 0;
+	while (map[i] != NULL)
+	{
+		if (!check_map(map[i], i))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+char	**get_map(char *map_file)
+{
+	char	*line;
+	char	**map;
+	int		i;
+	int		fd;
+
+	i = 0;
+	map = malloc(sizeof(char *) * get_array_map_size(open_map(map_file)) + 1);
+	fd = open_map(map_file);
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = ft_strtrim(get_next_line(fd), "\n");
 		if (!line)
 			break ;
-		row_len = ft_strlen(line);
-		
-		
+		map[i] = ft_strdup(line);
+		free(line);
+		i++;
 	}
+	map[i++] = NULL;
 	close(fd);
-	return (1);
+	return (map);
 }

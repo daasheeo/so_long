@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:24:53 by jesmunoz          #+#    #+#             */
-/*   Updated: 2023/09/18 12:34:52 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:28:02 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	{
 		number = number * 10 + *str - '0';
 		++str;
-		if (number < -INT_MIN && parity == -1)
+		if (number < INT_MIN && parity == -1)
 			return (0);
 		if (number > INT_MAX && parity == 1)
 			return (-1);

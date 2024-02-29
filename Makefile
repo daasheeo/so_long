@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/02/27 17:24:18 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/02/28 11:57:52 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ INCLUDE 			=   ./include/
 SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
 
 SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_DIR}/control/core_checker.c \
-				${SRC_DIR}/control/map_validator.c \
+				${SRC_DIR}/control/map_validator.c ${SRC_DIR}/utils/map_tools.c \
 				${SRC_TEST_FILES}
 
 OBJ			=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
@@ -61,13 +61,13 @@ DEP			= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 #---------------------------------DEPENDENCIES---------------------------------#
 #------------------------------------------------------------------------------#
 # CUnit library for testing
-CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
-# CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
+# CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
+CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft
-MLX_LNK		= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
-
+# MLX_LNK		= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+MLX_LNK		= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
 #------------------------------------------------------------------------------#
 #-----------------------------------RULES--------------------------------------#
 #------------------------------------------------------------------------------#
