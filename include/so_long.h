@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 12:21:26 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:20:49 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int						open_map(char *map_file);
 int						is_map_rectangular(char **map);
 int						is_map_closed(char **map);
 int						get_array_map_size(int fd);
+int						*get_map_dimesions(char **map);
 char					**get_map(char *map_file);
 
 // Rand function for random number generation

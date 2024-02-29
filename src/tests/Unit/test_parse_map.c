@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 12:33:00 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:40:14 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,22 @@ void	test_map_should_not_be_rectangular(void)
 	CU_ASSERT_FALSE(is_map_rectangular(map));
 }
 
-// void	test_map_should_have_closed_walls(void)
-// {
-// 	char	*map_file;
-// 	char	**map;
+void	test_map_should_have_closed_walls(void)
+{
+	char	*map_file;
+	char	**map;
 
-// 	map_file = "maps/map1.ber";
-// 	map = get_map(map_file);
-// 	CU_ASSERT_TRUE(is_map_closed(map));
-// }
+	map_file = "maps/map1.ber";
+	map = get_map(map_file);
+	CU_ASSERT_TRUE(is_map_closed(map));
+}
 
-// void	test_map_should_not_have_closed_walls(void)
-// {
-// 	char	*map_file;
-// 	char	**map;
+void	test_map_should_not_have_closed_walls(void)
+{
+	char	*map_file;
+	char	**map;
 
-// 	map_file = "maps/map1_invalid.ber";
-// 	map = get_map(map_file);
-// 	CU_ASSERT_FALSE(is_map_closed(map));
-// }
+	map_file = "maps/map1_not_closed.ber";
+	map = get_map(map_file);
+	CU_ASSERT_FALSE(is_map_closed(map));
+}

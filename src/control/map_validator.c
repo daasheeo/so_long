@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:23:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 12:42:09 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:59:58 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,16 @@ int	is_valid_map_extension(char *map_name)
 	return (0);
 }
 
-static int	check_map(char *line, int i)
+static int	check_map(char *line, int i, int *prev_row_len, int *next_row_len)
 {
-	int	prev_row_len;
-	int	next_row_len;
-
-	prev_row_len = 0;
-	next_row_len = 0;
 	if (i == 0)
-		prev_row_len = ft_strlen(line);
+		*prev_row_len = ft_strlen(line);
 	else
 	{
-		next_row_len = ft_strlen(line);
-		if (next_row_len != prev_row_len)
+		*next_row_len = ft_strlen(line);
+		if (*next_row_len != *prev_row_len)
 			return (0);
-		prev_row_len = next_row_len;
+		*prev_row_len = *next_row_len;
 	}
 	return (1);
 }
@@ -54,11 +49,15 @@ static int	check_map(char *line, int i)
 int	is_map_rectangular(char **map)
 {
 	int	i;
+	int	prev_row_len;
+	int	next_row_len;
 
+	prev_row_len = 0;
+	next_row_len = 0;
 	i = 0;
 	while (map[i] != NULL)
 	{
-		if (!check_map(map[i], i))
+		if (!check_map(map[i], i, &prev_row_len, &next_row_len))
 			return (0);
 		i++;
 	}
@@ -81,10 +80,13 @@ char	**get_map(char *map_file)
 		if (!line)
 			break ;
 		map[i] = ft_strdup(line);
+		if (!map[i])
+			return (NULL);
 		free(line);
 		i++;
 	}
-	map[i++] = NULL;
+	i++;
+	map[i] = NULL;
 	close(fd);
 	return (map);
 }

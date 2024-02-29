@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 12:04:56 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:29:45 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,24 @@ void	parser_suite(void)
 	// Set up suites and tests
 	test_parser_suite = CU_add_suite("Parser Tests", NULL, NULL);
 	
-	CU_add_test(test_parser_suite, "test_extension_map_should_be_true",
+	CU_add_test(test_parser_suite, "test of test_extension_map_should_be_true()",
 		test_extension_map_should_be_true);
-	CU_add_test(test_parser_suite, "test_extension_map_should_be_false",
+	CU_add_test(test_parser_suite, "test of test_extension_map_should_be_false()",
 		test_extension_map_should_be_false);
-	CU_add_test(test_parser_suite, "test_open_map_should_return_valid_fd",
+	CU_add_test(test_parser_suite, "test of test_open_map_should_return_valid_fd()",
 		test_open_map_should_return_valid_fd);
-	CU_add_test(test_parser_suite, "test_open_map_should_return_invalid_fd",
+	CU_add_test(test_parser_suite, "test of test_open_map_should_return_invalid_fd()",
 		test_open_map_should_return_invalid_fd);
-	CU_add_test(test_parser_suite, "test_get_map",
+	CU_add_test(test_parser_suite, "test of test_get_map()",
 		test_get_map);
-	CU_add_test(test_parser_suite, "test_map_should_be_rectangular",
+	CU_add_test(test_parser_suite, "test of test_map_should_be_rectangular()",
 		test_map_should_be_rectangular);
-	CU_add_test(test_parser_suite, "test_map_should_not_be_rectangular",
+	CU_add_test(test_parser_suite, "test of test_map_should_not_be_rectangular()",
 		test_map_should_not_be_rectangular);
+	CU_add_test(test_parser_suite, "test of test_map_should_have_closed_walls()",
+		test_map_should_have_closed_walls);
+	CU_add_test(test_parser_suite, "test of test_map_should_not_have_closed_walls()",
+		test_map_should_not_have_closed_walls);
 }
 
 int	run_testing(void)

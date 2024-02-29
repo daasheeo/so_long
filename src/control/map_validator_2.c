@@ -6,42 +6,50 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/28 12:10:37 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:03:47 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static int	check_map_walls(char *line, int i)
+int	*get_map_dimesions(char **map)
 {
-	int	prev_row_len;
-	int	next_row_len;
+	int	x;
+	int	y;
+	int	*map_dimesion;
 
-	prev_row_len = 0;
-	next_row_len = 0;
-	if (i == 0)
-		prev_row_len = ft_strlen(line);
-	else
-	{
-		next_row_len = ft_strlen(line);
-		if (next_row_len != prev_row_len)
-			return (0);
-		prev_row_len = next_row_len;
-	}
-	return (1);
+	x = 0;
+	y = 0;
+	while (map[0][x] != '\0')
+		x++;
+	while (map[y] != NULL)
+		y++;
+	map_dimesion = (int *)malloc(sizeof(int) * 2);
+	if (!map_dimesion)
+		return (NULL);
+	map_dimesion[0] = x;
+	map_dimesion[1] = y;
+	return (map_dimesion);
 }
 
 int	is_map_closed(char **map)
 {
-	char	*line;
-	int		i;
+	int	*map_dimesion;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (map[i])
+	x = 0;
+	y = 0;
+	map_dimesion = get_map_dimesions(map);
+	if (!map_dimesion)
+		return (0);
+	if (!ft_strchr(map[x], '1') || !ft_strchr(map[map_dimesion[x] - 1], '1'))
+		return (0);
+	while (x <= map_dimesion[0])
 	{
-		if (!check_map_walls(map[i], i))
+		if (map[x][y] != '1' || map[x][map_dimesion[y] - 1] != '1')
 			return (0);
-		i++;
+		x++;
 	}
 	return (1);
 }
