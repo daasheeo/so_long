@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:02 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/29 10:30:31 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/04 10:56:07 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ void	test_map_should_be_rectangular(void);
 void	test_map_should_not_be_rectangular(void);
 void	test_map_should_have_closed_walls(void);
 void	test_map_should_not_have_closed_walls(void);
+void	test_map_should_have_valid_chars(void);
+void	test_map_should_not_have_valid_chars(void);
 
 #endif

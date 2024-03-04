@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/29 10:40:14 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:09:20 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	test_open_map_should_return_valid_fd(void)
 {
 	char	*map_file;
 
-	map_file = "maps/map1.ber";
+	map_file = "maps/map.ber";
 	CU_ASSERT_TRUE(open_map(map_file) > 0);
 }
 
@@ -48,7 +48,7 @@ void	test_get_map(void)
 {
 	char	*map_file;
 
-	map_file = "maps/map1.ber";
+	map_file = "maps/map.ber";
 	CU_ASSERT_PTR_NOT_NULL(get_map(map_file));
 }
 
@@ -57,7 +57,7 @@ void	test_map_should_be_rectangular(void)
 	char	*map_file;
 	char	**map;
 
-	map_file = "maps/map1.ber";
+	map_file = "maps/map.ber";
 	map = get_map(map_file);
 	CU_ASSERT_TRUE(is_map_rectangular(map));
 }
@@ -67,7 +67,7 @@ void	test_map_should_not_be_rectangular(void)
 	char	*map_file;
 	char	**map;
 
-	map_file = "maps/map1_invalid.ber";
+	map_file = "maps/map_invalid.ber";
 	map = get_map(map_file);
 	CU_ASSERT_FALSE(is_map_rectangular(map));
 }
@@ -77,7 +77,7 @@ void	test_map_should_have_closed_walls(void)
 	char	*map_file;
 	char	**map;
 
-	map_file = "maps/map1.ber";
+	map_file = "maps/map.ber";
 	map = get_map(map_file);
 	CU_ASSERT_TRUE(is_map_closed(map));
 }
@@ -87,7 +87,42 @@ void	test_map_should_not_have_closed_walls(void)
 	char	*map_file;
 	char	**map;
 
-	map_file = "maps/map1_not_closed.ber";
+	map_file = "maps/map_not_closed.ber";
 	map = get_map(map_file);
 	CU_ASSERT_FALSE(is_map_closed(map));
+}
+
+void 	test_map_should_have_valid_chars(void)
+{
+	char *map_file = "maps/map.ber";
+	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	CU_ASSERT_TRUE(is_map_valid(fake_map));
+}
+
+void 	test_map_should_not_have_valid_chars(void)
+{
+	char *map_file = "maps/map_invalid_chars.ber";
+	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	fake_map->players = 0;
+	fake_map->collectibles_collected = 0;
+	fake_map->collectibles_collected = 0;
+	fake_map->exits = 0;
+
+	CU_ASSERT_FALSE(is_map_valid(fake_map));
 }

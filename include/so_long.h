@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/29 12:20:49 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:13:34 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
 # include <fcntl.h>
 
 // Structure for the game
+
+typedef enum e_tile
+{
+	EMPTY = '0',
+	WALL = '1',
+	PLAYER = 'P',
+	EXIT = 'E',
+	COLLECTIBLE = 'C'
+}						t_tile;
 
 typedef struct s_player
 {
@@ -39,6 +48,7 @@ typedef struct s_map
 	int					width;
 	int					height;
 	t_player			oc_player;
+	int					players;
 	int					collectibles_total;
 	int					collectibles_collected;
 	int					exits;
@@ -54,6 +64,8 @@ int						is_map_closed(char **map);
 int						get_array_map_size(int fd);
 int						*get_map_dimesions(char **map);
 char					**get_map(char *map_file);
+int						is_map_valid(t_map *map);
+
 
 // Rand function for random number generation
 typedef struct s_rand

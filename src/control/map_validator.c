@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:23:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/29 12:59:58 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/04 10:44:03 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ char	**get_map(char *map_file)
 
 	i = 0;
 	map = malloc(sizeof(char *) * get_array_map_size(open_map(map_file)) + 1);
+	if (!map)
+		return (NULL);
 	fd = open_map(map_file);
 	while (1)
 	{
