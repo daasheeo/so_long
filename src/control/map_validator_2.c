@@ -32,32 +32,27 @@ int	*get_map_dimesions(char **map)
 	return (map_coordinates);
 }
 
-int	is_map_closed(char **map)
+int	is_map_closed(t_map *map)
 {
-	int	*map_coordinates;
-	int	x;
+	int	i;
 
-	x = 0;
-	map_coordinates = get_map_dimesions(map);
-	if (!map_coordinates)
-		return (0);
-	while (map[0][x] != '\0' && map[map_coordinates[1] - 1][x] != '\0')
+	i = 0;
+	while (map->map[0][i] != '\0' && map->map[map->height - 1][i] != '\0')
 	{
-		if (map[0][x] != '1' || map[map_coordinates[1] - 1][x] != '1')
+		if (map->map[0][i] != WALL || map->map[map->height - 1][i] != WALL)
 			return (0);
-		x++;
+		i++;
 	}
-	while (x < map_coordinates[1])
+	while (i < map->height)
 	{
-		if (map[x][0] != '1' || map[x][map_coordinates[0] - 1] != '1')
+		if (map->map[i][0] != WALL || map->map[i][map->width - 1] != WALL)
 			return (0);
-		x++;
+		i++;
 	}
-	free(map_coordinates);
 	return (1);
 }
 
-int		check_map_char(t_map *map, int x, int y)
+static	int		check_map_char(t_map *map, int x, int y)
 {
 	if (map->map[y][x] != EMPTY && map->map[y][x] != WALL
 		&& map->map[y][x] != COLLECTIBLE && map->map[y][x] != EXIT

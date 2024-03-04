@@ -74,22 +74,34 @@ void	test_map_should_not_be_rectangular(void)
 
 void	test_map_should_have_closed_walls(void)
 {
-	char	*map_file;
-	char	**map;
 
-	map_file = "maps/map.ber";
-	map = get_map(map_file);
-	CU_ASSERT_TRUE(is_map_closed(map));
+	char *map_file = "maps/map.ber";
+	t_map	*fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+	
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	CU_ASSERT_TRUE(is_map_closed(fake_map));
 }
 
 void	test_map_should_not_have_closed_walls(void)
 {
-	char	*map_file;
-	char	**map;
 
-	map_file = "maps/map_not_closed.ber";
-	map = get_map(map_file);
-	CU_ASSERT_FALSE(is_map_closed(map));
+	char *map_file = "maps/map_not_closed.ber";
+	t_map	*fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+	
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	CU_ASSERT_FALSE(is_map_closed(fake_map));
 }
 
 void 	test_map_should_have_valid_chars(void)

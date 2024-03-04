@@ -60,7 +60,7 @@ void					parse_map(char *map_name);
 int						is_valid_map_extension(char *map_name);
 int						open_map(char *map_file);
 int						is_map_rectangular(char **map);
-int						is_map_closed(char **map);
+int						is_map_closed(t_map	*map);
 int						get_array_map_size(int fd);
 int						*get_map_dimesions(char **map);
 char					**get_map(char *map_file);
