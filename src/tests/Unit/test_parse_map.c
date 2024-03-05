@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/04 14:09:20 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:41:19 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void 	test_map_should_have_valid_chars(void)
 	int *dimensions = get_map_dimesions(fake_map->map);
 	fake_map->width = dimensions[0];
 	fake_map->height = dimensions[1];
-
 	CU_ASSERT_TRUE(is_map_valid(fake_map));
 }
 
@@ -138,3 +137,45 @@ void 	test_map_should_not_have_valid_chars(void)
 
 	CU_ASSERT_FALSE(is_map_valid(fake_map));
 }
+
+void	test_get_player_pos(void)
+{
+	char *map_file = "maps/map.ber";
+	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	int *player_pos = get_player_pos(fake_map);
+	fake_map->oc_player.x = player_pos[0];
+	fake_map->oc_player.y = player_pos[1];
+	CU_ASSERT_EQUAL(fake_map->oc_player.x, 7);
+	CU_ASSERT_EQUAL(fake_map->oc_player.y, 2);
+}
+
+// void	test_map_should_be_completed(void)
+// {
+// 	char *map_file = "maps/map.ber";
+// 	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
+// 	if (!fake_map)
+// 		return ;
+
+// 	fake_map->map = get_map(map_file);
+// 	int *dimensions = get_map_dimesions(fake_map->map);
+// 	int *player_pos = get_player_pos(fake_map->map);
+// 	fake_map->width = dimensions[0];
+// 	fake_map->height = dimensions[1];
+// 	fake_map->oc_player.x = player_pos[0];
+// 	fake_map->oc_player.y = player_pos[1];
+
+// 	fake_map->players = 0;
+// 	fake_map->collectibles_collected = 0;
+// 	fake_map->collectibles_collected = 0;
+// 	fake_map->exits = 0;
+
+// 	CU_ASSERT_PTR_NOT_NULL(check_map_path(fake_map));
+// }

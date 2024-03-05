@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/04 10:55:19 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:40:50 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void	parser_suite(void)
 		test_map_should_have_valid_chars);
 	CU_add_test(test_parser_suite, "test of test_map_should_not_have_valid_chars()",
 		test_map_should_not_have_valid_chars);
+	CU_add_test(test_parser_suite, "test of test_get_player_pos()",
+		test_get_player_pos);
+	
 }
 
 int	run_testing(void)
@@ -48,7 +51,7 @@ int	run_testing(void)
 	if (CUE_SUCCESS != CU_initialize_registry())
 		return (CU_get_error());
 	// Set up suites and tests
-	
+
 	parser_suite();
 	
 	// Run all tests using the basic interface

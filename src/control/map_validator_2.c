@@ -6,31 +6,11 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/04 16:58:33 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:38:46 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
-int	*get_map_dimesions(char **map)
-{
-	int	x;
-	int	y;
-	int	*map_coordinates;
-
-	x = 0;
-	y = 0;
-	while (map[0][x] != '\0')
-		x++;
-	while (map[y] != NULL)
-		y++;
-	map_coordinates = (int *)malloc(sizeof(int) * 2);
-	if (!map_coordinates)
-		return (NULL);
-	map_coordinates[0] = x;
-	map_coordinates[1] = y;
-	return (map_coordinates);
-}
 
 int	is_map_closed(t_map *map)
 {
@@ -52,7 +32,7 @@ int	is_map_closed(t_map *map)
 	return (1);
 }
 
-static	int		check_map_char(t_map *map, int x, int y)
+static int	check_map_char(t_map *map, int x, int y)
 {
 	if (map->map[y][x] != EMPTY && map->map[y][x] != WALL
 		&& map->map[y][x] != COLLECTIBLE && map->map[y][x] != EXIT
@@ -76,7 +56,7 @@ int	is_map_valid(t_map *map)
 	y = 0;
 	while (y < map->height)
 	{
-		while (x < map->width)
+		while (x < map->height)
 		{
 			if (!check_map_char(map, x, y))
 				return (0);

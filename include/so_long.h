@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/04 16:13:34 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:28:10 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # define HEIGHT 256
 
 # include <MLX42/MLX42.h>
+# include <fcntl.h>
 # include <libft.h>
 # include <stdio.h>
-# include <fcntl.h>
 
 // Structure for the game
 
@@ -60,12 +60,12 @@ void					parse_map(char *map_name);
 int						is_valid_map_extension(char *map_name);
 int						open_map(char *map_file);
 int						is_map_rectangular(char **map);
-int						is_map_closed(t_map	*map);
+int						is_map_closed(t_map *map);
 int						get_array_map_size(int fd);
 int						*get_map_dimesions(char **map);
 char					**get_map(char *map_file);
 int						is_map_valid(t_map *map);
-
+int						*get_player_pos(t_map *map);
 
 // Rand function for random number generation
 typedef struct s_rand
