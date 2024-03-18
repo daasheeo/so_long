@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/05 13:28:10 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:33:46 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include <libft.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
 
 // Structure for the game
 
