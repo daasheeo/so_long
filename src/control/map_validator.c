@@ -6,19 +6,11 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:23:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/05 12:02:02 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:27:47 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
-int	open_map(char *map_file)
-{
-	int	fd;
-
-	fd = open(map_file, O_RDONLY);
-	return (fd);
-}
 
 int	is_valid_map_extension(char *map_name)
 {

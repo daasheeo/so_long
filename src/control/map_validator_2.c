@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/05 13:38:46 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:57:41 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ int	is_map_valid(t_map *map)
 	}
 	if (map->players != 1 || map->exits != 1 || map->collectibles_total < 1)
 		return (0);
+	return (1);
+}
+
+int	can_be_completed(t_map *map)
+{
+	flood_fill(map);
 	return (1);
 }

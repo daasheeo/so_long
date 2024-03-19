@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:51:02 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 17:55:56 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 10:04:59 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ static char	*ft_read_buffer(char *buffer, int fd)
 
 	buff = malloc((1 + 1) * sizeof(char));
 	if (!buff)
-	{
-		free(buffer);
-		return (NULL);
-	}
+		return (free(buffer), NULL);
 	bytes_read = 1;
-	while (!ft_strchr((const char *)buffer, '\n') && bytes_read != 0)
+	while (!ft_strchr_gnl(buffer, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buff, 1);
 		if (bytes_read == -1)
@@ -34,7 +31,7 @@ static char	*ft_read_buffer(char *buffer, int fd)
 			return (NULL);
 		}
 		buff[bytes_read] = '\0';
-		buffer = ft_strjoin(buffer, buff);
+		buffer = ft_strjoin_gnl(buffer, buff);
 	}
 	free(buff);
 	return (buffer);
@@ -82,7 +79,7 @@ static char	*ft_clean_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
+	new_buffer = malloc(sizeof(char) * (ft_strlen_gnl(buffer) - i + 1));
 	if (!new_buffer)
 	{
 		free(buffer);

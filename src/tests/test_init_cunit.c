@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/05 13:40:50 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:05:54 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ void	parser_suite(void)
 		test_extension_map_should_be_true);
 	CU_add_test(test_parser_suite, "test of test_extension_map_should_be_false()",
 		test_extension_map_should_be_false);
-	CU_add_test(test_parser_suite, "test of test_open_map_should_return_valid_fd()",
-		test_open_map_should_return_valid_fd);
-	CU_add_test(test_parser_suite, "test of test_open_map_should_return_invalid_fd()",
-		test_open_map_should_return_invalid_fd);
 	CU_add_test(test_parser_suite, "test of test_get_map()",
 		test_get_map);
 	CU_add_test(test_parser_suite, "test of test_map_should_be_rectangular()",
@@ -42,6 +38,8 @@ void	parser_suite(void)
 		test_map_should_not_have_valid_chars);
 	CU_add_test(test_parser_suite, "test of test_get_player_pos()",
 		test_get_player_pos);
+	CU_add_test(test_parser_suite, "test of test_map_should_be_completed()",
+		test_map_should_be_completed);
 	
 }
 

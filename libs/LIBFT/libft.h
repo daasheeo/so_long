@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 19:20:21 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/02/27 17:46:09 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 09:59:05 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,4 +379,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 char				*get_next_line(int fd);
+char				*ft_strjoin_gnl(char *s1, char *s2);
+size_t				ft_strlen_gnl(char *s);
+char				*ft_strchr_gnl(char *s, int c);
 #endif

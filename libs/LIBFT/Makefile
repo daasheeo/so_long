@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 18:25:29 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/02/28 08:30:42 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/19 10:01:27 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ NAME 		= libft.a
 OBJ_DIR		= obj
 INCLUDE 	= ./
 CC 			= gcc -I ${INCLUDE}
-CFLAGS 		= -Wall -Wextra -g -MMD
+CFLAGS 		= -Wall -Wextra -Werror -g -MMD
 RM			= 	rm -rf
 
 SRC_FILES   =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
@@ -41,7 +41,8 @@ SRC_FILES   =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 					ft_itoa.c ft_strmapi.c ft_striteri.c ft_split.c \
 					ft_printf.c ft_putchar_i.c ft_putnbr_i.c ft_putnbr_p_i.c \
 					ft_putnbr_u_i.c ft_putnbr_x_i.c ft_putstr_i.c ft_strlen_i.c \
-					get_next_line.c
+					get_next_line.c get_next_line_utils.c \
+
 BNS_SRCS    =   ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 					ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
                     ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c

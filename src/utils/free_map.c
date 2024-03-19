@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 11:57:15 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/07 11:22:58 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/19 11:59:08 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-#include <test_so_long.h>
 
-void	ft_leaks(void)
+void	free_array_map(char **map)
 {
-	system("leaks -q so_long");
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
 
-int	main(int argc, char **argv)
+void	free_map_struct(t_map *map)
 {
-	atexit(ft_leaks);
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
-	if (argc != 2)
-	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-		return (1);
-	}
-	parse_map(argv[1]);
-	return (0);
+	free_array_map(map->map);
+	free(map);
 }

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:55:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/05 13:29:05 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:27:30 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@ int	get_array_map_size(int fd)
 	char	*line;
 	int		i;
 
+	if (fd < 0)
+		return (-1);
 	i = 0;
+	line = NULL;
 	while (1)
 	{
-		line = ft_strtrim(get_next_line(fd), "\n");
+		line = get_next_line(fd);
 		if (!line)
 			break ;
 		free(line);
 		i++;
 	}
-	close(fd);
 	return (i);
 }
 
 int	*get_map_dimesions(char **map)
 {
-	int x;
-	int y;
-	int *map_coordinates;
+	int	x;
+	int	y;
+	int	*map_coordinates;
 
 	x = 0;
 	y = 0;
@@ -50,47 +52,69 @@ int	*get_map_dimesions(char **map)
 	return (map_coordinates);
 }
 
-char	**get_map(char *map_file)
+static	void *set_map_lines(char **map, int fd)
 {
 	char	*line;
-	char	**map;
+	char 	*tmp;
 	int		i;
-	int		fd;
 
 	i = 0;
-	map = malloc(sizeof(char *) * get_array_map_size(open_map(map_file)) + 1);
-	if (!map)
-		return (NULL);
-	fd = open_map(map_file);
 	while (1)
 	{
-		line = ft_strtrim(get_next_line(fd), "\n");
+		line = get_next_line(fd);
 		if (!line)
 			break ;
-		map[i] = ft_strdup(line);
+		tmp = ft_strtrim(line, "\n");
+		if (!tmp)
+			break ;
+		map[i] = ft_strdup(tmp);
 		if (!map[i])
 			return (NULL);
 		free(line);
+		free(tmp);
 		i++;
 	}
-	i++;
 	map[i] = NULL;
+	return (map);
+}
+
+char	**get_map(char *map_file)
+{
+	char	**map;
+	int		fd;
+	int		array_map_size;
+
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	array_map_size = get_array_map_size(fd);
+	if (array_map_size == -1)
+		return (NULL);
+	close(fd);
+	map = malloc(sizeof(char *) * array_map_size + 1);
+	if (!map)
+		return (NULL);
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	map = set_map_lines(map, fd);
+	if (!map)
+		return (NULL);
 	close(fd);
 	return (map);
 }
 
-int *get_player_pos(t_map *map)
+int	*get_player_pos(t_map *map)
 {
-	int *pos;
-	int x;
-	int y;
-	
+	int	*pos;
+	int	x;
+	int	y;
+
 	pos = (int *)malloc(sizeof(int) * 2);
 	if (!pos)
 		return (NULL);
 	x = 0;
 	y = 0;
-	
 	while (y < map->height)
 	{
 		while (x < map->width)
