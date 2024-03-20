@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_checker.c                                     :+:      :+:    :+:   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 12:44:28 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/20 17:54:33 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/20 16:53:48 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/20 17:01:37 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+# include <so_long.h>
 
-void	parse_map(t_map *map)
+void	error_handler(char *msg)
 {
-	if (!is_map_rectangular(map->map))
-		error_handler("Map is not rectangular");
-	if (!is_map_closed(map))
-		error_handler("Map is not closed");
-	if (!is_map_valid(map))
-		error_handler("Map has invalid chars");
-	if (!can_be_completed(map))
-		error_handler("Map can not be completed");
+	ft_putendl_fd("Error", STDOUT_FILENO);
+	ft_putendl_fd(msg, STDOUT_FILENO);
+	exit (1);
 }

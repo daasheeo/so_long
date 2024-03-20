@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/20 10:59:24 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/20 17:08:27 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,8 @@ SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_p
 
 SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_DIR}/control/core_checker.c \
 				${SRC_DIR}/control/map_validator.c ${SRC_DIR}/utils/map_tools.c \
-				${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/utils/flood_fill.c\
-				${SRC_DIR}/utils/free_map.c \
+				${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c \
+				${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c \
 				${SRC_TEST_FILES}
 
 OBJ			=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))

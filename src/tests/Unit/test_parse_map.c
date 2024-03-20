@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/20 12:57:34 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:21:20 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,6 @@ void	test_get_player_pos(void)
 	int *dimensions = get_map_dimesions(fake_map->map);
 	fake_map->width = dimensions[0];
 	fake_map->height = dimensions[1];
-
 	int *player_pos = get_player_pos(fake_map);
 	fake_map->oc_player.x = player_pos[0];
 	fake_map->oc_player.y = player_pos[1];
