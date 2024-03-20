@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 11:57:41 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:53:57 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,41 @@ int	is_map_valid(t_map *map)
 	return (1);
 }
 
+int	has_valid_path(t_map *map)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < map->height)
+	{
+		while (x < map->height)
+		{
+			if (map->map[y][x] == COLLECTIBLE || map->map[y][x] == EXIT
+				|| map->map[y][x] == PLAYER)
+				return (0);
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	return (1);
+}
+
 int	can_be_completed(t_map *map)
 {
-	flood_fill(map);
+	t_map	*fake_map;
+
+	fake_map = flood_fill(map);
+	if (fake_map == NULL)
+		return (0);
+	if (!has_valid_path(fake_map))
+	{
+		free_map_struct(fake_map);
+		return (0);
+	}
+	else
+		free_map_struct(fake_map);
 	return (1);
 }

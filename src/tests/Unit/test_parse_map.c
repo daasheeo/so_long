@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:46:56 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 12:04:23 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:57:34 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ void	test_get_player_pos(void)
 
 void	test_map_should_be_completed(void)
 {
-	char *map_file = "maps/map_no_exit.ber";
+	char *map_file = "maps/map.ber";
 	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
 	if (!fake_map)
 		return ;
@@ -179,8 +179,6 @@ void	test_map_should_be_completed(void)
 	int *dimensions = get_map_dimesions(fake_map->map);
 	fake_map->width = dimensions[0];
 	fake_map->height = dimensions[1];
-	free(dimensions);
-
 
 	int *player_pos = get_player_pos(fake_map);
 	fake_map->oc_player.x = player_pos[0];
@@ -193,5 +191,33 @@ void	test_map_should_be_completed(void)
 	CU_ASSERT_TRUE(can_be_completed(fake_map));
 	free_array_map(fake_map->map);
 	free(fake_map);
+	free(dimensions);
+	free(player_pos);
+}
+
+void	test_map_should_not_be_completed(void)
+{
+	char *map_file = "maps/map_no_valid_path.ber";
+	t_map *fake_map = (t_map *)malloc(sizeof(t_map));
+	if (!fake_map)
+		return ;
+
+	fake_map->map = get_map(map_file);
+	int *dimensions = get_map_dimesions(fake_map->map);
+	fake_map->width = dimensions[0];
+	fake_map->height = dimensions[1];
+
+	int *player_pos = get_player_pos(fake_map);
+	fake_map->oc_player.x = player_pos[0];
+	fake_map->oc_player.y = player_pos[1];
+	fake_map->players = 0;
+	fake_map->collectibles_collected = 0;
+	fake_map->collectibles_total = 0;
+	fake_map->exits = 0;
+
+	CU_ASSERT_FALSE(can_be_completed(fake_map));
+	free_array_map(fake_map->map);
+	free(fake_map);
+	free(dimensions);
 	free(player_pos);
 }

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:39 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 12:05:54 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:55:46 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	parser_suite(void)
 		test_get_player_pos);
 	CU_add_test(test_parser_suite, "test of test_map_should_be_completed()",
 		test_map_should_be_completed);
+	CU_add_test(test_parser_suite, "test of test_map_should_not_be_completed()",
+		test_map_should_not_be_completed);
 	
 }
 

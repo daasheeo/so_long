@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 12:04:37 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/20 11:10:40 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int						is_map_valid(t_map *map);
 int						*get_player_pos(t_map *map);
 void					free_array_map(char **map);
 void					free_map_struct(t_map *map);
-void					flood_fill(t_map *map);
+t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
 // Rand function for random number generation
 typedef struct s_rand
