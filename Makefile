@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/20 17:08:27 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/21 09:55:10 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_p
 SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_DIR}/control/core_checker.c \
 				${SRC_DIR}/control/map_validator.c ${SRC_DIR}/utils/map_tools.c \
 				${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c \
+				${SRC_DIR}/game/run_game.c \
 				${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c \
 				${SRC_TEST_FILES}
 
@@ -68,7 +69,7 @@ CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft
-# MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 # MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
 #------------------------------------------------------------------------------#
 #-----------------------------------RULES--------------------------------------#

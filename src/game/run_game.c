@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handler.c                                    :+:      :+:    :+:   */
+/*   run_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:53:48 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/21 09:43:28 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/21 09:54:13 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/21 09:56:14 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <so_long.h>
 
-void	error_handler(char *msg)
+int	run_game(t_map *map)
 {
-	ft_putendl_fd("Error", STDOUT_FILENO);
-	ft_putendl_fd(msg, STDOUT_FILENO);
-	exit (EXIT_FAILURE);
+	
+	return (0);
 }

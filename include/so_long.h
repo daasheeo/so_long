@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/20 17:20:19 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:57:12 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ typedef struct s_player
 	int					y;
 	int					moves;
 	int					alive;
-	// texture
-
 }						t_player;
 
 typedef struct s_map
@@ -70,6 +68,7 @@ void					free_array_map(char **map);
 void					free_map_struct(t_map *map);
 t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
+int						run_game(t_map *map);
 
 // Error handler
 void					error_handler(char *msg);
