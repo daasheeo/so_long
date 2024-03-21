@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/21 09:53:35 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:06:46 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_map	*init_map(char *name)
 
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
-		error_handler("Malloc failed");
+		game_cleaner(NULL, "Malloc failed");
 	ft_bzero(map, sizeof(t_map));
 	map->map = get_map(name);
 	if (map->map == NULL)
-		error_handler("Invalid file or map not found");
+		game_cleaner(map, "Invalid map");
 	dimensions = get_map_dimesions(map->map);
 	if (dimensions == NULL)
 		return (NULL);
@@ -54,12 +54,12 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
 		return (run_testing());
 	if (argc != 2)
-		error_handler("Invalid number of arguments");
+		game_cleaner(NULL, "Usage: ./so_long [map.ber]");
 	if (!is_valid_map_extension(argv[1]))
-		error_handler("Invalid map extension");
+		game_cleaner(NULL, "Invalid map extension");
 	map = init_map(argv[1]);
 	if (map == NULL)
-		error_handler("Invalid map");
+		game_cleaner(map, "Invalid map");
 	parse_map(map);
 	if (!run_game(map))
 		return (EXIT_FAILURE);

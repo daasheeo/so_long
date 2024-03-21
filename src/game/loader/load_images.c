@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_game.c                                         :+:      :+:    :+:   */
+/*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 09:54:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/21 18:55:34 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/21 16:55:25 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/21 19:09:45 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <so_long.h>
 
-int	run_game(t_map *map)
-{
-	img_t *images;
 
-	map->mlx = mlx_init(map->width * PIXELS, map->height * PIXELS, "One Piece", false);
-	if (!map->mlx)
-		return (0);
-	images = load_images(map);
-	return (1);
+img_t	*load_water_image(t_map *one_piece, img_t *images)
+{
+	mlx_texture_t *water;
+
+	water = mlx_load_png(WATER);
+	if (!water)
+		game_cleaner(one_piece, "Failed to load water texture");
+	images->water = mlx_texture_to_image(one_piece->mlx, water);
+	if (!images->water)
+	{
+		mlx_delete_texture(water);
+		game_cleaner(one_piece, "Failed to load water image");
+	}
+	mlx_delete_texture(water);
+	return (images);
 }

@@ -6,23 +6,23 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/21 09:57:12 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:05:11 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define WIDTH 256
-# define HEIGHT 256
+# define PIXELS 32
 
 # include <MLX42/MLX42.h>
 # include <fcntl.h>
 # include <libft.h>
 # include <stdio.h>
 
-// Structure for the game
-
+/**
+ * @brief Various enums for map characters
+ */
 typedef enum e_tile
 {
 	EMPTY = '0',
@@ -32,6 +32,16 @@ typedef enum e_tile
 	COLLECTIBLE = 'C'
 }						t_tile;
 
+# define WATER "assets/usar/water_1.png"
+# define WATER_NORTH "assets/usar/water_north.png"
+# define WATER_SOUTH "assets/usar/water_south.png"
+# define WATER_EAST "assets/usar/water_east.png"
+# define WATER_WEST "assets/usar/water_west.png"
+# define SAND "assets/usar/sand.png"
+# define CHUNK "assets/usar/chunk.png"
+# define PLAYER "assets/usar/luffy.png"
+# define EXIT "assets/usar/ship.png"
+
 typedef struct s_player
 {
 	int					x;
@@ -39,6 +49,19 @@ typedef struct s_player
 	int					moves;
 	int					alive;
 }						t_player;
+
+typedef struct s_img
+{
+	mlx_image_t			*water;
+	mlx_image_t			*water_north;
+	mlx_image_t			*water_south;
+	mlx_image_t			*water_east;
+	mlx_image_t			*water_west;
+	mlx_image_t			*sand;
+	mlx_image_t			*chunk;
+	mlx_image_t			*player;
+	mlx_image_t			*exit;
+}						img_t;
 
 typedef struct s_map
 {
@@ -51,6 +74,8 @@ typedef struct s_map
 	int					collectibles_total;
 	int					collectibles_collected;
 	int					exits;
+	mlx_t				*mlx;
+	img_t				*img;
 }						t_map;
 
 // Core functions
@@ -69,9 +94,15 @@ void					free_map_struct(t_map *map);
 t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
 int						run_game(t_map *map);
-
-// Error handler
+/**
+ * @brief This function loads the images for the game.
+ *
+ * @param one_piece The game structure with the mlx pointer
+ * @return Structures with the images.
+ */
+img_t					*load_images(t_map *one_piece);
 void					error_handler(char *msg);
+void					game_cleaner(t_map *one_piece, char *msg);
 // Rand function for random number generation
 typedef struct s_rand
 {
