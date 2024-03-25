@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/21 09:55:10 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/25 16:41:04 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,17 +48,30 @@ INCLUDE 			=   ./include/
 #-----------------------------------FILES--------------------------------------#
 #------------------------------------------------------------------------------#
 
-SRC_TEST_FILES	=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
 
-SRC_FILES   = 	${SRC_DIR}/main.c ${SRC_DIR}/utils/rand.c ${SRC_DIR}/control/core_checker.c \
-				${SRC_DIR}/control/map_validator.c ${SRC_DIR}/utils/map_tools.c \
-				${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c \
-				${SRC_DIR}/game/run_game.c \
-				${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c \
-				${SRC_TEST_FILES}
+SRC_CONTROL_FILES 	=	${SRC_DIR}/control/core_checker.c ${SRC_DIR}/control/map_validator.c \
+						${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c
 
-OBJ			=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
-DEP			= 	$(addsuffix .d, $(basename $(SRC_FILES)))
+SRC_LOADER_FILES	=	${SRC_DIR}/game/loader/load_init.c ${SRC_DIR}/game/loader/image_generic_loader.c \
+						${SRC_DIR}/game/loader/load_texture_images.c ${SRC_DIR}/game/loader/load_texture_images_2.c
+
+SRC_RENDER_FILES 	= 	${SRC_DIR}/game/render/render_background.c
+
+SRC_GAME_FILES		=	${SRC_DIR}/game/run_game.c ${SRC_LOADER_FILES} ${SRC_RENDER_FILES}
+
+
+SRC_TEST_FILES		=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
+
+SRC_UTILS_FILES		= 	${SRC_DIR}/utils/rand.c ${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c ${SRC_DIR}/utils/map_tools.c
+
+SRC_FILES   		= 	${SRC_DIR}/main.c \
+						${SRC_CONTROL_FILES} \
+						${SRC_GAME_FILES} \
+						${SRC_UTILS_FILES} \
+						${SRC_TEST_FILES}
+
+OBJ					=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
+DEP					= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 
 #------------------------------------------------------------------------------#
 #---------------------------------DEPENDENCIES---------------------------------#

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:49:36 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/20 18:16:49 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:52:59 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static char	**get_dup_map(t_map *map)
 {
 	char	**dup_map;
 	int		j;
+	int		height;
 
 	j = 0;
-	dup_map = malloc(sizeof(char *) * map->height + 1);
+	height = map->height;
+	dup_map = malloc(sizeof(char *) * height + 1);
 	if (!dup_map)
 		return (NULL);
-	dup_map[map->height] = NULL;
-	while (map->height-- && map->height >= 0)
+	dup_map[height] = NULL;
+	while (height-- && height >= 0)
 	{
-		dup_map[map->height] = ft_strdup(map->map[map->height]);
-		if (!dup_map[map->height])
+		dup_map[height] = ft_strdup(map->map[height]);
+		if (!dup_map[height])
 		{
-			while (j < map->height)
+			while (j < height)
 			{
 				free(dup_map[j]);
 				j++;

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_images.c                                      :+:      :+:    :+:   */
+/*   render_background.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 16:55:25 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/21 19:09:45 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/25 16:05:03 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/25 16:40:19 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <so_long.h>
 
-
-img_t	*load_water_image(t_map *one_piece, img_t *images)
+void	render_background(t_map *map)
 {
-	mlx_texture_t *water;
+	int x;
+	int y;
 
-	water = mlx_load_png(WATER);
-	if (!water)
-		game_cleaner(one_piece, "Failed to load water texture");
-	images->water = mlx_texture_to_image(one_piece->mlx, water);
-	if (!images->water)
+	y = 0;
+	while (y < map->height)
 	{
-		mlx_delete_texture(water);
-		game_cleaner(one_piece, "Failed to load water image");
+		x = 0;
+		while (x < map->width)
+		{
+			if (map->map[y][x] == '1')
+				mlx_image_to_window(map->mlx, map->img->water, x * PIXELS, y * PIXELS);
+			else
+				mlx_image_to_window(map->mlx, map->img->sand, x * PIXELS, y * PIXELS);
+			x++;
+		}
+		y++;
 	}
-	mlx_delete_texture(water);
-	return (images);
 }
