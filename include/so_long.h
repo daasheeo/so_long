@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/25 17:21:33 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/26 08:49:43 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef enum e_tile
 # define WATER_WEST_IMAGE 		"assets/usar/water_west_32x32.png"
 # define WATER_WEST_IMAGE_64 	"assets/usar/water_west_64x64.png"
 
-# define SAND_IMAGE_64 			"assets/usar/sand_32x32.png"
-# define SAND_IMAGE_64_64 		"assets/usar/sand_64x64.png"
+# define SAND_IMAGE 			"assets/usar/sand_32x32.png"
+# define SAND_IMAGE_64			"assets/usar/sand_64x64.png"
 
 # define CHUNK_IMAGE 			"assets/usar/chunk_32x32.png"
 # define CHUNK_IMAGE_64 		"assets/usar/chunk_64x64.png"

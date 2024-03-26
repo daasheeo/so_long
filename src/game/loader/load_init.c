@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:45:51 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/25 15:57:59 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/26 10:16:59 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ img_t	*load_images(t_map *one_piece)
 	images = load_sand_image(one_piece, images);
 	images = load_chunk_image(one_piece, images);
 	images = load_exit_image(one_piece, images);
+	images = load_player_image(one_piece, images);
 	return (images);
 }

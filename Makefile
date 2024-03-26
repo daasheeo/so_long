@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/25 16:41:04 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/26 08:44:10 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,13 +77,13 @@ DEP					= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 #---------------------------------DEPENDENCIES---------------------------------#
 #------------------------------------------------------------------------------#
 # CUnit library for testing
-CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
-# CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
+# CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
+CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft
-MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
-# MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
+# MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
 #------------------------------------------------------------------------------#
 #-----------------------------------RULES--------------------------------------#
 #------------------------------------------------------------------------------#

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/20 16:45:08 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/26 08:45:00 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ int	ft_printf(char const *str, ...)
 		else
 			ft_putchar_i(*str, &i);
 		str++;
-		if (i < 0)
-			return (-1);
 	}
 	va_end(va);
 	return (i);
