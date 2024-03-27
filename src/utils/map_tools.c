@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:55:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/19 12:27:30 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/27 20:04:15 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	*get_map_dimesions(char **map)
 		x++;
 	while (map[y] != NULL)
 		y++;
-	map_coordinates = (int *)malloc(sizeof(int) * 2);
+	map_coordinates = ft_calloc(2, sizeof(int));
 	if (!map_coordinates)
 		return (NULL);
+	map_coordinates[0] = 0;
+	map_coordinates[1] = 0;
 	map_coordinates[0] = x;
 	map_coordinates[1] = y;
 	return (map_coordinates);
@@ -91,7 +93,7 @@ char	**get_map(char *map_file)
 	if (array_map_size == -1)
 		return (NULL);
 	close(fd);
-	map = malloc(sizeof(char *) * array_map_size + 1);
+	map = ft_calloc(array_map_size + 1, sizeof(char *));
 	if (!map)
 		return (NULL);
 	fd = open(map_file, O_RDONLY);
@@ -110,7 +112,7 @@ int	*get_player_pos(t_map *map)
 	int	x;
 	int	y;
 
-	pos = (int *)malloc(sizeof(int) * 2);
+	pos = (int *)ft_calloc(2, sizeof(int));
 	if (!pos)
 		return (NULL);
 	x = 0;

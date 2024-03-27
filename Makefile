@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/26 08:44:10 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/27 20:07:29 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ SRC_RENDER_FILES 	= 	${SRC_DIR}/game/render/render_background.c
 SRC_GAME_FILES		=	${SRC_DIR}/game/run_game.c ${SRC_LOADER_FILES} ${SRC_RENDER_FILES}
 
 
-SRC_TEST_FILES		=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
+# SRC_TEST_FILES		=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
 
 SRC_UTILS_FILES		= 	${SRC_DIR}/utils/rand.c ${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c ${SRC_DIR}/utils/map_tools.c
 

@@ -1,0 +1,15 @@
+{
+   <ignore_cunit>
+   Memcheck:Leak
+   ...
+   fun:cunit
+   ...
+}
+
+{
+   <ignore_mlx42>
+   Memcheck:Leak
+   ...
+   fun:mlx42
+   ...
+}

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/25 17:13:05 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/27 20:07:48 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	main(int argc, char **argv)
 	t_map	*map;
 
 	// atexit(ft_leaks);
-	if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-		return (run_testing());
+	// if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
+	// 	return (run_testing());
 	if (argc != 2)
 		game_cleaner(NULL, "Usage: ./so_long [map.ber]");
 	if (!is_valid_map_extension(argv[1]))

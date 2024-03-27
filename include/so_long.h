@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/26 08:49:43 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:24:30 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,32 @@ typedef enum e_tile
 	COLLECTIBLE = 'C'
 }						t_tile;
 
-# define WATER_IMAGE 			"assets/usar/water_32x32.png"
-# define WATER_IMAGE_64 		"assets/usar/water_64x64.png"
+# define WATER_IMAGE "assets/usar/water_32x32.png"
+# define WATER_IMAGE_64 "assets/usar/water_64x64.png"
 
-# define WATER_NORTH_IMAGE 		"assets/usar/water_north_32x32.png"
-# define WATER_NORTH_IMAGE_64 	"assets/usar/water_north_64x64.png"
+# define WATER_NORTH_IMAGE "assets/usar/water_north_32x32.png"
+# define WATER_NORTH_IMAGE_64 "assets/usar/water_north_64x64.png"
 
-# define WATER_SOUTH_IMAGE 		"assets/usar/water_south_32x32.png"
-# define WATER_SOUTH_IMAGE_64 	"assets/usar/water_south_64x64.png"
+# define WATER_SOUTH_IMAGE "assets/usar/water_south_32x32.png"
+# define WATER_SOUTH_IMAGE_64 "assets/usar/water_south_64x64.png"
 
-# define WATER_EAST_IMAGE 		"assets/usar/water_east_32x32.png"
-# define WATER_EAST_IMAGE_64 	"assets/usar/water_east_64x64.png"
+# define WATER_EAST_IMAGE "assets/usar/water_east_32x32.png"
+# define WATER_EAST_IMAGE_64 "assets/usar/water_east_64x64.png"
 
-# define WATER_WEST_IMAGE 		"assets/usar/water_west_32x32.png"
-# define WATER_WEST_IMAGE_64 	"assets/usar/water_west_64x64.png"
+# define WATER_WEST_IMAGE "assets/usar/water_west_32x32.png"
+# define WATER_WEST_IMAGE_64 "assets/usar/water_west_64x64.png"
 
-# define SAND_IMAGE 			"assets/usar/sand_32x32.png"
-# define SAND_IMAGE_64			"assets/usar/sand_64x64.png"
+# define SAND_IMAGE "assets/usar/sand_32x32.png"
+# define SAND_IMAGE_64 "assets/usar/sand_64x64.png"
 
-# define CHUNK_IMAGE 			"assets/usar/chunk_32x32.png"
-# define CHUNK_IMAGE_64 		"assets/usar/chunk_64x64.png"
+# define CHUNK_IMAGE "assets/usar/chunk_32x32.png"
+# define CHUNK_IMAGE_64 "assets/usar/chunk_64x64.png"
 
-# define PLAYER_IMAGE 			"assets/usar/luffy_32x32.png"
-# define PLAYER_IMAGE_64 		"assets/usar/luffy_64x64.png"
+# define PLAYER_IMAGE "assets/usar/luffy_32x32.png"
+# define PLAYER_IMAGE_64 "assets/usar/luffy_64x64.png"
 
-# define EXIT_IMAGE 			"assets/usar/ship_32x32.png"
-# define EXIT_IMAGE_64 			"assets/usar/ship_64x64.png"
-
+# define EXIT_IMAGE "assets/usar/ship_32x32.png"
+# define EXIT_IMAGE_64 "assets/usar/ship_64x64.png"
 
 typedef struct s_player
 {
@@ -131,8 +130,10 @@ img_t					*load_image_generic(t_map *one_piece, img_t *images,
 							mlx_image_t **image_texture);
 
 img_t					*load_water_image(t_map *one_piece, img_t *images);
-img_t					*load_water_north_image(t_map *one_piece, img_t *images);
-img_t					*load_water_south_image(t_map *one_piece, img_t *images);
+img_t					*load_water_north_image(t_map *one_piece,
+							img_t *images);
+img_t					*load_water_south_image(t_map *one_piece,
+							img_t *images);
 img_t					*load_water_east_image(t_map *one_piece, img_t *images);
 img_t					*load_water_west_image(t_map *one_piece, img_t *images);
 img_t					*load_sand_image(t_map *one_piece, img_t *images);
@@ -140,7 +141,7 @@ img_t					*load_exit_image(t_map *one_piece, img_t *images);
 img_t					*load_chunk_image(t_map *one_piece, img_t *images);
 img_t					*load_player_image(t_map *one_piece, img_t *images);
 
-void					render_background(t_map *map);
+void					render_assets(t_map *map);
 
 // Error handling functions
 void					error_handler(char *msg);
