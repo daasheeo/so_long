@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handler.c                                    :+:      :+:    :+:   */
+/*   move_validator.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:53:48 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:43:09 by jesmunoz         ###   ########.fr       */
+/*   Created: 2024/03/29 16:45:42 by jesmunoz          #+#    #+#             */
+/*   Updated: 2024/03/29 16:46:13 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	error_handler(char *msg)
+int	is_valid_move(t_map *map, int *new_pos)
 {
-	ft_putendl_fd("Error", STDOUT_FILENO);
-	ft_putendl_fd(msg, STDOUT_FILENO);
-	exit(EXIT_FAILURE);
-}
-
-void	game_cleaner(t_map *one_piece, char *msg)
-{
-	if (one_piece)
-	{
-		if (one_piece->map)
-			free_array_map(one_piece->map);
-		if (one_piece->mlx)
-			mlx_terminate(one_piece->mlx);
-		free(one_piece);
-	}
-	error_handler(msg);
+	if (new_pos[0] < 0 || new_pos[0] >= map->width || new_pos[1] < 0
+		|| new_pos[1] >= map->height)
+		return (0);
+	if (map->map[new_pos[1]][new_pos[0]] == WALL)
+		return (0);
+	return (1);
 }

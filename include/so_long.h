@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/27 19:24:30 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:46:37 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void					free_map_struct(t_map *map);
 t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
 int						run_game(t_map *map);
+int						is_valid_move(t_map *map, int *new_pos);
 /**
  * @brief This function loads the images for the game.
  *

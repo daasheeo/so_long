@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/27 20:07:48 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:35:41 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ t_map	*init_map(char *name)
 	int		*dimensions;
 	int		*player_position;
 
-	map = (t_map *)malloc(sizeof(t_map));
+	map = ft_calloc(1, sizeof(t_map));
 	if (!map)
 		game_cleaner(NULL, "Malloc failed");
-	ft_bzero(map, sizeof(t_map));
 	map->map = get_map(name);
 	if (map->map == NULL)
 		game_cleaner(map, "Invalid map");
@@ -44,6 +43,20 @@ t_map	*init_map(char *name)
 	map->oc_player.y = player_position[1];
 	free(player_position);
 	return (map);
+}
+
+void 	free_images(t_map *map)
+{
+	mlx_delete_image(map->mlx, map->img->water);
+	mlx_delete_image(map->mlx, map->img->water_north);
+	mlx_delete_image(map->mlx, map->img->water_south);
+	mlx_delete_image(map->mlx, map->img->water_east);
+	mlx_delete_image(map->mlx, map->img->water_west);
+	mlx_delete_image(map->mlx, map->img->sand);
+	mlx_delete_image(map->mlx, map->img->chunk);
+	mlx_delete_image(map->mlx, map->img->exit);
+	mlx_delete_image(map->mlx, map->img->player);
+	free(map->img);
 }
 
 int	main(int argc, char **argv)
@@ -64,6 +77,8 @@ int	main(int argc, char **argv)
 	if (!run_game(map))
 		return (EXIT_FAILURE);
 	free_array_map(map->map);
+	free_images(map);
+	mlx_terminate(map->mlx);
 	free(map);
 	return (EXIT_SUCCESS);
 }

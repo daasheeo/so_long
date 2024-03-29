@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:55:25 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/25 16:59:08 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:41:40 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 img_t	*load_water_image(t_map *one_piece, img_t *images)
 {
-	return (load_image_generic(one_piece, images, WATER_IMAGE_64, &images->water));
+	return (load_image_generic(one_piece, images, WATER_IMAGE_64,
+			&images->water));
 }
 
 img_t	*load_water_north_image(t_map *one_piece, img_t *images)

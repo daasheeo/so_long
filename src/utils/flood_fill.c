@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:49:36 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/27 20:06:04 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:39:52 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	fill(t_map *fake_map, t_player begin)
 t_map	*flood_fill(t_map *map)
 {
 	t_map	*fake_map;
-	char 	**dup_map;
+	char	**dup_map;
 
 	fake_map = ft_calloc(1, sizeof(t_map));
 	if (!fake_map)

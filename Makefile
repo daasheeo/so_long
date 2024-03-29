@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/27 20:07:29 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/29 16:47:10 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ INCLUDE 			=   ./include/
 
 
 SRC_CONTROL_FILES 	=	${SRC_DIR}/control/core_checker.c ${SRC_DIR}/control/map_validator.c \
-						${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c
+						${SRC_DIR}/control/map_validator_2.c ${SRC_DIR}/control/error_handler.c \
+						${SRC_DIR}/control/move_validator.c \
 
 SRC_LOADER_FILES	=	${SRC_DIR}/game/loader/load_init.c ${SRC_DIR}/game/loader/image_generic_loader.c \
 						${SRC_DIR}/game/loader/load_texture_images.c ${SRC_DIR}/game/loader/load_texture_images_2.c
@@ -78,7 +79,7 @@ DEP					= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 #------------------------------------------------------------------------------#
 # CUnit library for testing
 # CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
-CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
+# CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft

@@ -1,1 +1,1 @@
-valgrind --suppressions=.mlx42.supp --leak-check=full --show-leak-kinds=all -s ./so_long maps/map.ber >> leaks.txt 2>&1
+valgrind --suppressions=.mlx42.supp --leak-check=full --show-leak-kinds=all -s ./so_long maps/map.ber > leaks.txt 2>&1

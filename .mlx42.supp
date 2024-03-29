@@ -1,15 +1,7 @@
 {
-   <ignore_cunit>
+   suppress: libmlx42.a
    Memcheck:Leak
-   ...
-   fun:cunit
-   ...
-}
-
-{
-   <ignore_mlx42>
-   Memcheck:Leak
-   ...
-   fun:mlx42
-   ...
+   fun:main_loop
+   fun:mlx_init
+   fun:main
 }

@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:55:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/27 20:04:15 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:39:04 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int	*get_map_dimesions(char **map)
 	return (map_coordinates);
 }
 
-static	void *set_map_lines(char **map, int fd)
+static void	*set_map_lines(char **map, int fd)
 {
 	char	*line;
-	char 	*tmp;
+	char	*tmp;
 	int		i;
 
 	i = 0;
