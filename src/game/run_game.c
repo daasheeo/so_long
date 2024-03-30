@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:54:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:48:02 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:17:38 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ void	move_player(int key, t_map *map)
 		new_pos[0] += 1;
 	if (is_valid_move(map, new_pos))
 	{
-		map->oc_player.x = new_pos[0];
-		map->oc_player.y = new_pos[1];
-		map->img->player->instances[0].x = new_pos[0] * PIXELS;
-		map->img->player->instances[0].y = new_pos[1] * PIXELS;
-		map->oc_player.moves++;
+		new_character_pos(map, new_pos);
 		print_moves(map);
 	}
 	free(new_pos);

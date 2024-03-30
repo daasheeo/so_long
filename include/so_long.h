@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:46:37 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:37:59 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,14 @@ typedef struct s_img
 	mlx_image_t			*exit;
 }						img_t;
 
+typedef struct s_texture
+{
+	int y;
+	int x;
+	int instance;
+	bool collected;
+}						t_texture;
+
 typedef struct s_map
 {
 	char				*name;
@@ -90,6 +98,7 @@ typedef struct s_map
 	int					players;
 	int					collectibles_total;
 	int					collectibles_collected;
+	t_texture			**collectibles_instances;
 	int					exits;
 	mlx_t				*mlx;
 	img_t				*img;
@@ -112,6 +121,7 @@ t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
 int						run_game(t_map *map);
 int						is_valid_move(t_map *map, int *new_pos);
+void					new_character_pos(t_map *map, int *new_pos);
 /**
  * @brief This function loads the images for the game.
  *

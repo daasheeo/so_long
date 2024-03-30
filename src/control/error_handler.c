@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:53:48 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:43:09 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:10:23 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	game_cleaner(t_map *one_piece, char *msg)
 			free_array_map(one_piece->map);
 		if (one_piece->mlx)
 			mlx_terminate(one_piece->mlx);
+		if (one_piece->collectibles_instances)
+			free_array_textures(one_piece->collectibles_instances);
 		free(one_piece);
 	}
 	error_handler(msg);

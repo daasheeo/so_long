@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:41:08 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/25 16:50:46 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:28:23 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,16 @@ int	is_map_valid(t_map *map)
 	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
 	while (y < map->height)
 	{
-		while (x < map->height)
+		x = 0;
+		while (x < map->width)
 		{
 			if (!check_map_char(map, x, y))
 				return (0);
 			x++;
 		}
-		x = 0;
 		y++;
 	}
 	if (map->players != 1 || map->exits != 1 || map->collectibles_total < 1)
@@ -79,7 +78,7 @@ int	has_valid_path(t_map *map)
 	y = 0;
 	while (y < map->height)
 	{
-		while (x < map->height)
+		while (x < map->width)
 		{
 			if (map->map[y][x] == COLLECTIBLE || map->map[y][x] == EXIT
 				|| map->map[y][x] == PLAYER)

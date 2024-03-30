@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/29 16:47:10 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/03/29 17:19:13 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,14 @@ SRC_CONTROL_FILES 	=	${SRC_DIR}/control/core_checker.c ${SRC_DIR}/control/map_va
 SRC_LOADER_FILES	=	${SRC_DIR}/game/loader/load_init.c ${SRC_DIR}/game/loader/image_generic_loader.c \
 						${SRC_DIR}/game/loader/load_texture_images.c ${SRC_DIR}/game/loader/load_texture_images_2.c
 
+SRC_MOVES_FILES		=	${SRC_DIR}/game/moves/moves.c
+
 SRC_RENDER_FILES 	= 	${SRC_DIR}/game/render/render_background.c
 
-SRC_GAME_FILES		=	${SRC_DIR}/game/run_game.c ${SRC_LOADER_FILES} ${SRC_RENDER_FILES}
+SRC_GAME_FILES		=	${SRC_DIR}/game/run_game.c \
+						${SRC_LOADER_FILES} \
+						${SRC_MOVES_FILES} \
+						${SRC_RENDER_FILES}
 
 
 # SRC_TEST_FILES		=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c

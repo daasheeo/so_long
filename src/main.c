@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:35:41 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:28:45 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int	main(int argc, char **argv)
 	free_images(map);
 	mlx_terminate(map->mlx);
 	free(map);
+	
 	return (EXIT_SUCCESS);
 }
