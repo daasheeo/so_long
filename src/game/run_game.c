@@ -6,16 +6,12 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:54:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 17:17:38 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 10:51:00 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void 	print_moves(t_map *map)
-{
-	ft_printf("You made %d moves\n", map->oc_player.moves);
-}
 
 void	move_player(int key, t_map *map)
 {
@@ -35,10 +31,7 @@ void	move_player(int key, t_map *map)
 	if (key == MLX_KEY_D)
 		new_pos[0] += 1;
 	if (is_valid_move(map, new_pos))
-	{
 		new_character_pos(map, new_pos);
-		print_moves(map);
-	}
 	free(new_pos);
 }
 

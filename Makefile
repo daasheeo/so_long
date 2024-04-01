@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/03/29 17:19:13 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/04/01 09:21:53 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,8 +88,8 @@ DEP					= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft
-# MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
-MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
+MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+# MLX_LNK	= 	-L$(MLX_SRC) -lmlx42 -Iinclude -ldl -lglfw -pthread -lm
 #------------------------------------------------------------------------------#
 #-----------------------------------RULES--------------------------------------#
 #------------------------------------------------------------------------------#

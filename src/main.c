@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/30 17:28:45 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 09:45:13 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,11 @@ t_map	*init_map(char *name)
 	return (map);
 }
 
-void 	free_images(t_map *map)
-{
-	mlx_delete_image(map->mlx, map->img->water);
-	mlx_delete_image(map->mlx, map->img->water_north);
-	mlx_delete_image(map->mlx, map->img->water_south);
-	mlx_delete_image(map->mlx, map->img->water_east);
-	mlx_delete_image(map->mlx, map->img->water_west);
-	mlx_delete_image(map->mlx, map->img->sand);
-	mlx_delete_image(map->mlx, map->img->chunk);
-	mlx_delete_image(map->mlx, map->img->exit);
-	mlx_delete_image(map->mlx, map->img->player);
-	free(map->img);
-}
-
 int	main(int argc, char **argv)
 {
 	t_map	*map;
 
-	// atexit(ft_leaks);
+	atexit(ft_leaks);
 	// if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
 	// 	return (run_testing());
 	if (argc != 2)
@@ -78,8 +64,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	free_array_map(map->map);
 	free_images(map);
+	free_array_textures(map->collectibles_instances);
 	mlx_terminate(map->mlx);
 	free(map);
-	
 	return (EXIT_SUCCESS);
 }

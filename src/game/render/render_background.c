@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:05:03 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/30 18:09:55 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 10:04:18 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	render_assets(t_map *map)
 {
 	t_texture **collectibles;
 
-	collectibles = malloc(sizeof(t_texture *) * (map->collectibles_total));
+	collectibles = ft_calloc(map->collectibles_total + 1, sizeof(t_texture *));
 	if (!collectibles)
 		game_cleaner(map, "Malloc failed");
 	map->collectibles_instances = collectibles;

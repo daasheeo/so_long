@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/30 17:37:59 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 09:34:24 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ int						is_map_valid(t_map *map);
 int						*get_player_pos(t_map *map);
 void					free_array_map(char **map);
 void					free_map_struct(t_map *map);
+void					free_array_textures(t_texture **textures);
 t_map					*flood_fill(t_map *map);
 int						can_be_completed(t_map *map);
 int						run_game(t_map *map);
@@ -129,6 +130,7 @@ void					new_character_pos(t_map *map, int *new_pos);
  * @return Structures with the images.
  */
 img_t					*load_images(t_map *one_piece);
+void					free_images(t_map *map);
 /**
  * @brief This function loads the water image.
  *
