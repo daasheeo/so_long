@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:05:03 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 11:10:21 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:36:19 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static void	put_elements(t_map *map, int x, int y)
 	if (map->map[y][x] == COLLECTIBLE)
 	{
 		mlx_image_to_window(map->mlx, map->img->sand, x * PIXELS, y * PIXELS);
-		index = mlx_image_to_window(map->mlx, map->img->chunk, x * PIXELS, y * PIXELS);
+		index = mlx_image_to_window(map->mlx, map->img->chunk, x * PIXELS, y
+				* PIXELS);
 		if (index < 0)
 			game_cleaner(map, "mlx_image_to_window failed");
 		set_collectibles_instances(map, y, x, index);
@@ -91,7 +92,7 @@ static void	render_player(t_map *map)
 
 void	render_assets(t_map *map)
 {
-	t_texture **collectibles;
+	t_texture	**collectibles;
 
 	collectibles = ft_calloc(map->collectibles_total + 1, sizeof(t_texture *));
 	if (!collectibles)

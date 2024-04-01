@@ -6,19 +6,15 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:22:58 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 09:40:35 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:38:25 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void 	free_images(t_map *map)
+void	free_images(t_map *map)
 {
 	mlx_delete_image(map->mlx, map->img->water);
-	mlx_delete_image(map->mlx, map->img->water_north);
-	mlx_delete_image(map->mlx, map->img->water_south);
-	mlx_delete_image(map->mlx, map->img->water_east);
-	mlx_delete_image(map->mlx, map->img->water_west);
 	mlx_delete_image(map->mlx, map->img->sand);
 	mlx_delete_image(map->mlx, map->img->chunk);
 	mlx_delete_image(map->mlx, map->img->exit);
@@ -26,7 +22,7 @@ void 	free_images(t_map *map)
 	free(map->img);
 }
 
-void 	free_array_textures(t_texture **textures)
+void	free_array_textures(t_texture **textures)
 {
 	int	i;
 

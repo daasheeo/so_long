@@ -1,7 +1,0 @@
-{
-   suppress: libmlx42.a
-   Memcheck:Leak
-   fun:main_loop
-   fun:mlx_init
-   fun:main
-}

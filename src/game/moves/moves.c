@@ -6,13 +6,13 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:15:27 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 10:51:31 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:35:30 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void 	print_moves(t_map *map)
+void	print_moves(t_map *map)
 {
 	ft_printf("You made %d moves\n", map->oc_player.moves);
 }

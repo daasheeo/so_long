@@ -6,12 +6,11 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:54:13 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 10:51:00 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:35:19 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
 
 void	move_player(int key, t_map *map)
 {

@@ -6,7 +6,7 @@
 #    By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 09:58:28 by jesmunoz          #+#    #+#              #
-#    Updated: 2024/04/01 09:21:53 by jesmunoz         ###   ########.fr        #
+#    Updated: 2024/04/01 13:18:42 by jesmunoz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,10 +65,7 @@ SRC_GAME_FILES		=	${SRC_DIR}/game/run_game.c \
 						${SRC_MOVES_FILES} \
 						${SRC_RENDER_FILES}
 
-
-# SRC_TEST_FILES		=	${SRC_DIR}/tests/test_init_cunit.c ${SRC_DIR}/tests/Unit/test_parse_map.c
-
-SRC_UTILS_FILES		= 	${SRC_DIR}/utils/rand.c ${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c ${SRC_DIR}/utils/map_tools.c
+SRC_UTILS_FILES		=  	${SRC_DIR}/utils/flood_fill.c ${SRC_DIR}/utils/free_map.c ${SRC_DIR}/utils/map_tools.c
 
 SRC_FILES   		= 	${SRC_DIR}/main.c \
 						${SRC_CONTROL_FILES} \
@@ -82,9 +79,6 @@ DEP					= 	$(addsuffix .d, $(basename $(SRC_FILES)))
 #------------------------------------------------------------------------------#
 #---------------------------------DEPENDENCIES---------------------------------#
 #------------------------------------------------------------------------------#
-# CUnit library for testing
-# CUNIT_LNK	=	-L/Users/jesmunoz/.brew/Cellar/cunit/2.1-3/lib -lcunit
-# CUNIT_LNK	=	-L/usr/include/CUnit -lcunit
 LIBFT_SRC	=	${LIBS}/LIBFT
 MLX_SRC		=	${LIBS}/MLX42
 FT_LNK		= 	-L$(LIBFT_SRC) -lft
@@ -116,15 +110,6 @@ $(NAME):	$(OBJ)
 	@echo "${ITALIC}${BOLD}${MAGENTA}+---------------------------------------------+${DEF_COLOR}"
 	@$(CC) $(OBJ) $(CUNIT_LNK) $(FT_LNK) $(MLX_LNK) -o $(NAME) 
 	@echo "\n${BLUE} ◎ $(GREEN)$(NAME) compiled successfully ${BLUE}◎$(DEF_COLOR)\n"
-
-tests: all
-	@echo
-	@echo "${ITALIC}${BOLD}${MAGENTA}+---------------------------------------------+${DEF_COLOR}"
-	@echo "${ITALIC}${BOLD}${MAGENTA}|${BLUE} Running tests...${MAGENTA}                            |${DEF_COLOR}"
-	@echo "${ITALIC}${BOLD}${MAGENTA}+---------------------------------------------+${DEF_COLOR}"
-	@./$(NAME) tests
-	@echo "\n${BLUE} ◎ $(GREEN)Tests ran successfully ${BLUE}◎$(DEF_COLOR)\n"
-	
 
 clean:
 	@${RM} ${OBJ} ${DEP}

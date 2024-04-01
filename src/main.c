@@ -6,17 +6,11 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:43:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 12:10:17 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:36:59 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-#include <test_so_long.h>
-
-void	ft_leaks(void)
-{
-	system("leaks -q so_long");
-}
 
 t_map	*init_map(char *name)
 {
@@ -49,9 +43,6 @@ int	main(int argc, char **argv)
 {
 	t_map	*map;
 
-	atexit(ft_leaks);
-	// if (argc == 2 && ft_strncmp(argv[1], "test", 4) == 0)
-	// 	return (run_testing());
 	if (argc != 2)
 		game_cleaner(NULL, "Usage: ./so_long [map.ber]");
 	if (!is_valid_map_extension(argv[1]))
