@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:45:06 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 09:34:24 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:13:17 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,58 +126,38 @@ void					new_character_pos(t_map *map, int *new_pos);
 /**
  * @brief This function loads the images for the game.
  *
- * @param one_piece The game structure with the mlx pointer
+ * @param map The game structure with the mlx pointer
  * @return Structures with the images.
  */
-img_t					*load_images(t_map *one_piece);
+img_t					*load_images(t_map *map);
 void					free_images(t_map *map);
 /**
  * @brief This function loads the water image.
  *
- * @param one_piece The game structure with the mlx pointer
+ * @param map The game structure with the mlx pointer
  * @param images The images structure
  * @return The images structure with the water image loaded.
  */
-img_t					*load_image_generic(t_map *one_piece, img_t *images,
+img_t					*load_image_generic(t_map *map, img_t *images,
 							const char *image_name,
 							mlx_image_t **image_texture);
 
-img_t					*load_water_image(t_map *one_piece, img_t *images);
-img_t					*load_water_north_image(t_map *one_piece,
+img_t					*load_water_image(t_map *map, img_t *images);
+img_t					*load_water_north_image(t_map *map,
 							img_t *images);
-img_t					*load_water_south_image(t_map *one_piece,
+img_t					*load_water_south_image(t_map *map,
 							img_t *images);
-img_t					*load_water_east_image(t_map *one_piece, img_t *images);
-img_t					*load_water_west_image(t_map *one_piece, img_t *images);
-img_t					*load_sand_image(t_map *one_piece, img_t *images);
-img_t					*load_exit_image(t_map *one_piece, img_t *images);
-img_t					*load_chunk_image(t_map *one_piece, img_t *images);
-img_t					*load_player_image(t_map *one_piece, img_t *images);
+img_t					*load_water_east_image(t_map *map, img_t *images);
+img_t					*load_water_west_image(t_map *map, img_t *images);
+img_t					*load_sand_image(t_map *map, img_t *images);
+img_t					*load_exit_image(t_map *map, img_t *images);
+img_t					*load_chunk_image(t_map *map, img_t *images);
+img_t					*load_player_image(t_map *map, img_t *images);
 
 void					render_assets(t_map *map);
 
 // Error handling functions
 void					error_handler(char *msg);
-void					game_cleaner(t_map *one_piece, char *msg);
-// Rand function for random number generation
-typedef struct s_rand
-{
-	unsigned long int	seed;
-}						t_rand;
-
-/**
- * @brief This function seeds the random number generator.
- *
- * @param generator
- * @param seed
- */
-void					rand_seed(t_rand *generator, unsigned int seed);
-/**
- * @brief This function generates a random number.
- *
- * @param generator
- * @return int
- */
-int						rand_number(t_rand *generator);
+void					game_cleaner(t_map *map, char *msg);
 
 #endif

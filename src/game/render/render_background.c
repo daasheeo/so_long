@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:05:03 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 10:04:18 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:10:21 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static void	put_elements(t_map *map, int x, int y)
 	int32_t	index;
 
 	index = 0;
-	if (map->map[y][x] == '1')
+	if (map->map[y][x] == WALL)
 		mlx_image_to_window(map->mlx, map->img->water, x * PIXELS, y * PIXELS);
-	if (map->map[y][x] == '0')
+	if (map->map[y][x] == EMPTY)
 		mlx_image_to_window(map->mlx, map->img->sand, x * PIXELS, y * PIXELS);
-	if (map->map[y][x] == 'C')
+	if (map->map[y][x] == COLLECTIBLE)
 	{
 		mlx_image_to_window(map->mlx, map->img->sand, x * PIXELS, y * PIXELS);
 		index = mlx_image_to_window(map->mlx, map->img->chunk, x * PIXELS, y * PIXELS);
@@ -40,7 +40,7 @@ static void	put_elements(t_map *map, int x, int y)
 			game_cleaner(map, "mlx_image_to_window failed");
 		set_collectibles_instances(map, y, x, index);
 	}
-	if (map->map[y][x] == 'E')
+	if (map->map[y][x] == EXIT)
 	{
 		mlx_image_to_window(map->mlx, map->img->sand, x * PIXELS, y * PIXELS);
 		mlx_image_to_window(map->mlx, map->img->exit, x * PIXELS, y * PIXELS);

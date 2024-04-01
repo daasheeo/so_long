@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:55:44 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 17:37:11 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:57:24 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	**get_map(char *map_file)
 	if (fd < 0)
 		return (NULL);
 	array_map_size = get_array_map_size(fd);
-	if (array_map_size == -1)
+	if (array_map_size == -1 || array_map_size == 0)
 		return (NULL);
 	close(fd);
 	map = ft_calloc(array_map_size + 1, sizeof(char *));

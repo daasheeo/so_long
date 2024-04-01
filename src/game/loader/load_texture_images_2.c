@@ -6,32 +6,32 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 10:21:55 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/03/29 16:42:21 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:14:00 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-img_t	*load_sand_image(t_map *one_piece, img_t *images)
+img_t	*load_sand_image(t_map *map, img_t *images)
 {
-	return (load_image_generic(one_piece, images, SAND_IMAGE_64,
+	return (load_image_generic(map, images, SAND_IMAGE_64,
 			&images->sand));
 }
 
-img_t	*load_chunk_image(t_map *one_piece, img_t *images)
+img_t	*load_chunk_image(t_map *map, img_t *images)
 {
-	return (load_image_generic(one_piece, images, CHUNK_IMAGE_64,
+	return (load_image_generic(map, images, CHUNK_IMAGE_64,
 			&images->chunk));
 }
 
-img_t	*load_player_image(t_map *one_piece, img_t *images)
+img_t	*load_player_image(t_map *map, img_t *images)
 {
-	return (load_image_generic(one_piece, images, PLAYER_IMAGE_64,
+	return (load_image_generic(map, images, PLAYER_IMAGE_64,
 			&images->player));
 }
 
-img_t	*load_exit_image(t_map *one_piece, img_t *images)
+img_t	*load_exit_image(t_map *map, img_t *images)
 {
-	return (load_image_generic(one_piece, images, EXIT_IMAGE_64,
+	return (load_image_generic(map, images, EXIT_IMAGE_64,
 			&images->exit));
 }

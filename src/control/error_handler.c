@@ -6,7 +6,7 @@
 /*   By: jesmunoz <jesmunoz@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:53:48 by jesmunoz          #+#    #+#             */
-/*   Updated: 2024/04/01 09:44:27 by jesmunoz         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:14:00 by jesmunoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	error_handler(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-void	game_cleaner(t_map *one_piece, char *msg)
+void	game_cleaner(t_map *map, char *msg)
 {
-	if (one_piece)
+	if (map)
 	{
-		if (one_piece->map)
-			free_array_map(one_piece->map);
-		if (one_piece->mlx)
-			mlx_terminate(one_piece->mlx);
-		if (one_piece->collectibles_instances)
-			free_array_textures(one_piece->collectibles_instances);
-		free(one_piece);
+		if (map->map)
+			free_array_map(map->map);
+		if (map->mlx)
+			mlx_terminate(map->mlx);
+		if (map->collectibles_instances)
+			free_array_textures(map->collectibles_instances);
+		free(map);
 	}
 	error_handler(msg);
 }
